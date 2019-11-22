@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    #集群情况下，请保证application.name 相同，否则不可用（在eureka控制台unavailable-replicas中可以看到不可用的副本节点）
+    name: clusterEureka
+eureka:
+  instance:
+    #hostname需要和自己域名的保持一致
+    hostname: cluster2
+  client:
+    # 是否将自己注册到注册中心
+    register-with-eureka: true
+    #是否从注册中心检索服务（获取注册信息）
+    fetch-registry: true
+    service-url:
+      #Eureka 注册中心的地址，多个地址有逗号隔开
+      defaultZone: http://cluster1:7070/eureka,http://cluster3:9090/eureka/

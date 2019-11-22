@@ -1,0 +1,18 @@
+server:
+  port: 9090
+spring:
+  application:
+
+    name: clusterEureka
+eureka:
+  instance:
+
+    hostname: cluster3
+  client:
+
+    register-with-eureka: true
+
+    fetch-registry: true
+    service-url:
+
+      defaultZone: http://cluster1:7070/eureka/,http://cluster2:8080/eureka/
